@@ -11,8 +11,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //都道府県選択ボタン
         var topBtn = findViewById<Button>(R.id.TopBtn)
 
+        //画面遷移
         topBtn.setOnClickListener{
             val intent = Intent(this,MainActivity2::class.java)
             startActivity(intent)
