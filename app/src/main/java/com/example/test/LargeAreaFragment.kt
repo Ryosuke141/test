@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -43,8 +44,14 @@ class LargeAreaFragment : Fragment() {
     private fun initViewModel(){
         val viewModel = ViewModelProvider(this).get(LargeAreaViewModel::class.java)
         viewModel.getLargeAreaListObserver().observe(this, Observer<LargeAreaList> {
+            if (it != null){
+                recyclerAdapter.setUpdatedData(it.results)
+            } else {
+                Toast.makeText(activity, "error in getting data", Toast.LENGTH_SHORT).show()
+            }
 
         })
+        viewModel.getApiCall()
     }
     companion object {
 
