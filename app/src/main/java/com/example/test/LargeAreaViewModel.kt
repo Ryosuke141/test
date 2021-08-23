@@ -20,7 +20,7 @@ class LargeAreaViewModel : ViewModel() {
     fun getApiCall(){
         viewModelScope.launch(Dispatchers.IO) {
             val retrofitInstance = RetrofitInstance.getRetroInstance().create(RetrofitService::class.java)
-            val response = retrofitInstance.getLargeArea("281c6093222149b3")
+            val response = retrofitInstance.getLargeArea("281c6093222149b3","json")
             largeAreaListLiveData.postValue(response)
         }
     }
