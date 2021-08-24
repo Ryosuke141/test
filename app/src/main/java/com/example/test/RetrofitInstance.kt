@@ -6,7 +6,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class RetrofitInstance {
 
     companion object {
-        val BaseURL = "http://webservice.recruit.co.jp/hotpepper/large_area/v1/"
+        val BaseURL = "http://webservice.recruit.co.jp/hotpepper/"
 
         fun getRetroInstance(): Retrofit {
 
