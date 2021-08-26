@@ -2,9 +2,15 @@ package com.example.test
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import retrofit2.Retrofit
+import android.util.Log
+import android.view.View
+import kotlinx.android.synthetic.main.activity_main2.*
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
+import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 
 const val BASE_URL = "http://webservice.recruit.co.jp"
 
@@ -26,6 +32,20 @@ class MainActivity2 : AppCompatActivity() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
             .create(LargeAreaInfo::class.java)
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val response : Response<ModelLargeArea> = api.getLargeAreaInfo().awaitResponse()
+            if (response.isSuccessful){
+                val data : ModelLargeArea = response.body()!!
+                Log.d(TAG, data.name)
+
+                withContext(Dispatchers.Main){
+                    nameLargeArea.visibility = View.VISIBLE
+
+                    nameLargeArea.text = data.name
+                }
+            }
+        }
 
     }
 }

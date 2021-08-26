@@ -6,7 +6,8 @@ import retrofit2.http.Query
 
 interface LargeAreaInfo {
 
-    @GET("/hotpepper/large_area/v1/?key=281c6093222149b3&format=json")
-    fun getLargeAreaInfo(): Call<ModelLargeArea>
+    @GET("/hotpepper/large_area/v1/")
+    fun getLargeAreaInfo(@Query("key") key : String = "281c6093222149b3",
+                         @Query("format") format : String = "json"): Call<ModelLargeArea>
 
 }
