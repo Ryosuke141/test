@@ -34,7 +34,7 @@ class MainActivity2 : AppCompatActivity() {
             .create(LargeAreaInfo::class.java)
 
         GlobalScope.launch(Dispatchers.IO) {
-            val response : Response<ModelLargeArea> = api.getLargeAreaInfo().awaitResponse()
+            val response : Response<List<ModelLargeArea>> = api.getLargeAreaInfo().awaitResponse()
             if (response.isSuccessful){
                 val data : ModelLargeArea = response.body()!!
                 Log.d(TAG, data.name)
