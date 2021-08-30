@@ -4,6 +4,11 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 
+private const val BASE_URL = "http://webservice.recruit.co.jp"
+
+private val moshi =
+
+
 interface LargeAreaInfo {
 
     @GET("/hotpepper/large_area/v1/")

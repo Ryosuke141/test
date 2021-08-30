@@ -12,8 +12,6 @@ import kotlinx.coroutines.withContext
 import retrofit2.*
 import retrofit2.converter.gson.GsonConverterFactory
 
-const val BASE_URL = "http://webservice.recruit.co.jp"
-
 class MainActivity2 : AppCompatActivity() {
 
     private var TAG = "MainActivity2"
