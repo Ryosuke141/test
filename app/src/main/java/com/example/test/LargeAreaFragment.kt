@@ -43,9 +43,9 @@ class LargeAreaFragment : Fragment() {
 
     private fun initViewModel(){
         val viewModel = ViewModelProvider(this).get(LargeAreaViewModel::class.java)
-        viewModel.getLargeAreaListObserver().observe(this, Observer<LargeAreaList> {
+        viewModel.getLargeAreaListObserver().observe(this, Observer<LargeAreaResults> {
             if (it != null){
-                recyclerAdapter.setUpdatedData(it.results)
+                recyclerAdapter.setUpdatedData(it.results.large_area)
             } else {
                 Toast.makeText(activity, "error in getting data", Toast.LENGTH_SHORT).show()
             }

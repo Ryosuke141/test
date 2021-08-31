@@ -7,13 +7,13 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 class LargeAreaViewModel : ViewModel() {
-    lateinit var largeAreaListLiveData : MutableLiveData<LargeAreaList>
+    lateinit var largeAreaListLiveData : MutableLiveData<LargeAreaResults>
 
     init {
         largeAreaListLiveData = MutableLiveData()
     }
 
-    fun getLargeAreaListObserver(): MutableLiveData<LargeAreaList>{
+    fun getLargeAreaListObserver(): MutableLiveData<LargeAreaResults>{
         return largeAreaListLiveData
     }
 
